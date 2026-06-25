@@ -434,7 +434,7 @@
     },
     "packages/varlock": {
       "name": "varlock",
-      "version": "1.8.0",
+      "version": "1.9.0",
       "bin": {
         "varlock": "./bin/cli.js",
       },

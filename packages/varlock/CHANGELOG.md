@@ -14,6 +14,12 @@
 
 
 
+
+## 1.9.0
+<sub>2026-06-25</sub>
+
+- [#13](https://github.com/seanrobertwright/varlock/pull/13)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)! - Add `varlock keychain` commands to manage macOS Keychain-backed secrets.
+
 ## 1.8.0
 <sub>2026-06-23</sub>
 
