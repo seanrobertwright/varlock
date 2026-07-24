@@ -19,6 +19,22 @@
 
 
 
+
+## 1.14.0
+<sub>2026-07-24</sub>
+
+- [#40](https://github.com/seanrobertwright/varlock/pull/40)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)!
+  New `varlock flatten` command: collapses the @import graph into a self-contained directory (rewriting import paths, pinning plugin versions) so a single package can be deployed without the rest of the monorepo, e.g. in Docker builds
+- [#40](https://github.com/seanrobertwright/varlock/pull/40)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)!
+  Proxy: secrets are now substituted into request headers only by default (excluding common forward/log headers like cookie and x-forwarded-*), and a placeholder may appear at most once per request. Widen with @proxy(substituteIn=[...]) using targets like header:authorization, path, query:api_key, or body:client_secret (body always needs a path; use body:* for bodies that can't be parsed into one), and raise the cap with maxOccurrences. This prevents an injected secret from being swapped into a request body, query, or unintended header where it could be exfiltrated.
+- [#38](https://github.com/seanrobertwright/varlock/pull/38)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - fix `varlock audit` ignoring `@auditIgnore` on schema items
+- [#40](https://github.com/seanrobertwright/varlock/pull/40)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  plugins now work in shell-less/distroless images: tarballs extract natively (no `tar`/shell dependency), and `varlock flatten --vendor-plugins` copies plugins into the output for a fully self-contained artifact
+- [#40](https://github.com/seanrobertwright/varlock/pull/40)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Reduce published package size: build the proxy cert authority from low-level asn1 packages instead of @peculiar/x509, and strip bundled third-party source text from release sourcemaps
+- [#40](https://github.com/seanrobertwright/varlock/pull/40)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  proxy client compatibility fixes: minted MITM certs now include subject/authority key identifiers so strict TLS verifiers (python 3.13+ urllib/httpx defaults) accept them; the injected env now sets NODE_USE_ENV_PROXY=1 so Node's built-in fetch (node 24+) routes through the proxy instead of silently bypassing it, and DENO_CERT so Deno trusts the proxy CA; Proxy-Authorization from clients is stripped instead of forwarded upstream
+
 ## 1.13.0
 <sub>2026-07-21</sub>
 

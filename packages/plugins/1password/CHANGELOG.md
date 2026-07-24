@@ -6,6 +6,13 @@
 
 
 
+
+## 2.0.1
+<sub>2026-07-24</sub>
+
+- [#39](https://github.com/seanrobertwright/varlock/pull/39)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  CLI batch reads now use op inject instead of op run -- env -0, fixing failures on Windows where no unix env binary exists
+
 ## 2.0.0
 <sub>2026-06-23</sub>
 
