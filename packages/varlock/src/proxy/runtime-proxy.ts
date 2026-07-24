@@ -1089,6 +1089,10 @@ export async function startLocalProxyRuntime({
     );
     delete upstreamHeaders['proxy-connection'];
     delete upstreamHeaders.connection;
+    // Hop-by-hop: addressed to this proxy, never the upstream. A client with
+    // credentials in its proxy url (e.g. a copied HTTPS_PROXY with userinfo)
+    // must not have them forwarded to the destination host.
+    delete upstreamHeaders['proxy-authorization'];
     if (t.upstreamHostHeader !== undefined) upstreamHeaders.host = t.upstreamHostHeader;
     if (rewrittenBody.byteLength !== body.byteLength) {
       upstreamHeaders['content-length'] = String(rewrittenBody.byteLength);
@@ -1361,6 +1365,15 @@ export async function startLocalProxyRuntime({
       REQUESTS_CA_BUNDLE: combinedCaPath,
       CURL_CA_BUNDLE: combinedCaPath,
       GIT_SSL_CAINFO: combinedCaPath,
+      CARGO_HTTP_CAINFO: combinedCaPath,
+      // Node's built-in fetch (undici) ignores HTTP(S)_PROXY unless this flag
+      // is set (node >= 24; older nodes ignore the flag and still bypass).
+      // Without it, fetch traffic silently goes DIRECT to the upstream,
+      // skipping substitution and egress policy entirely.
+      NODE_USE_ENV_PROXY: '1',
+      // Deno honors HTTP(S)_PROXY but reads its CA trust from DENO_CERT,
+      // not SSL_CERT_FILE.
+      DENO_CERT: combinedCaPath,
     },
     setSessionEnvPayloadJson: (payloadJson, meta) => {
       sessionEnvPayloadJson = payloadJson;

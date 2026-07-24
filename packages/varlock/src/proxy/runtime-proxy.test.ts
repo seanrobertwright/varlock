@@ -251,6 +251,9 @@ describe('startLocalProxyRuntime', () => {
     expect(runtime.env.REQUESTS_CA_BUNDLE).toBeDefined();
     expect(runtime.env.CURL_CA_BUNDLE).toBeDefined();
     expect(runtime.env.GIT_SSL_CAINFO).toBeDefined();
+    expect(runtime.env.DENO_CERT).toBe(runtime.env.SSL_CERT_FILE);
+    // without this, node's built-in fetch silently bypasses the proxy (node >= 24)
+    expect(runtime.env.NODE_USE_ENV_PROXY).toBe('1');
 
     await runtime.stop();
   });
@@ -367,6 +370,40 @@ describe('startLocalProxyRuntime', () => {
     // The proxy no longer forces identity (avoids the bandwidth/compat cost for
     // a low-value protection); the client's encoding preference is preserved.
     expect(receivedAcceptEncoding).toBe('gzip, br, deflate');
+
+    await runtime.stop();
+    await new Promise<void>((resolve) => {
+      upstream.close(() => resolve());
+    });
+  });
+
+  test('strips Proxy-Authorization instead of forwarding it upstream (hop-by-hop)', async () => {
+    // A client with credentials in its proxy url (userinfo) sends
+    // Proxy-Authorization addressed to the proxy; the upstream must not see it.
+    let upstreamSawProxyAuth: string | undefined;
+    const upstream = http.createServer((req, res) => {
+      upstreamSawProxyAuth = req.headers['proxy-authorization'] as string | undefined;
+      res.statusCode = 200;
+      res.end('ok');
+    });
+    await new Promise<void>((resolve) => {
+      upstream.listen(0, '127.0.0.1', () => resolve());
+    });
+    const addr = upstream.address();
+    if (!addr || typeof addr === 'string') throw new Error('Failed to start test upstream');
+
+    const runtime = await startLocalProxyRuntime({
+      managedItems: [],
+      rules: [{ domain: ['127.0.0.1'], itemKeys: [] }],
+      egressMode: 'permissive',
+    });
+
+    const res = await requestViaProxy(runtime.env.HTTP_PROXY!, `http://127.0.0.1:${addr.port}/`, {
+      'proxy-authorization': 'Basic c29tZXRva2VuOg==',
+    });
+
+    expect(res.statusCode).toBe(200);
+    expect(upstreamSawProxyAuth).toBeUndefined();
 
     await runtime.stop();
     await new Promise<void>((resolve) => {
