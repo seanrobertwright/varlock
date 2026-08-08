@@ -2,6 +2,13 @@
 
 
 
+
+## 2.0.1
+<sub>2026-08-08</sub>
+
+- [#53](https://github.com/seanrobertwright/varlock/pull/53)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix opening KeePass databases, which failed with `errorHandler object is no longer supported`. Also defer database setup until a `kp()`/`kpBulk()` call actually runs, so an unused instance with an empty master password no longer fails the whole schema.
+
 ## 2.0.0
 <sub>2026-06-23</sub>
 

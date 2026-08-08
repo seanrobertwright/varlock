@@ -24,6 +24,15 @@
 
 
 
+
+## 1.16.1
+<sub>2026-08-08</sub>
+
+- [#52](https://github.com/seanrobertwright/varlock/pull/52)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Telemetry now honors the `DO_NOT_TRACK` environment variable, alongside the existing `VARLOCK_TELEMETRY_DISABLED` var and config file settings.
+- [#53](https://github.com/seanrobertwright/varlock/pull/53)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  fix `@preventLeak` breaking srvx-based servers (TanStack Start, Nitro) by patching the global Response with a proxy instead of a subclass
+
 ## 1.16.0
 <sub>2026-07-31</sub>
 

@@ -2,6 +2,13 @@
 
 
 
+
+## 2.1.0
+<sub>2026-08-08</sub>
+
+- [#53](https://github.com/seanrobertwright/varlock/pull/53)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)!
+  dashlane() no longer hangs forever on a locked vault: dcli calls run with stdin closed and a timeout (default 30s, configurable via @initDashlane(timeoutMs=...)). New allowMissing option (per item or in @initDashlane) resolves missing vault entries as empty instead of failing
+
 ## 2.0.0
 <sub>2026-06-23</sub>
 
