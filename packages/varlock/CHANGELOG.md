@@ -26,6 +26,21 @@
 
 
 
+
+## 1.17.1
+<sub>2026-08-22</sub>
+
+- [#64](https://github.com/seanrobertwright/varlock/pull/64)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - track proxy subcommand usage in telemetry
+- [#64](https://github.com/seanrobertwright/varlock/pull/64)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - fix telemetry events being dropped when a command exits before the request finishes
+- [#65](https://github.com/seanrobertwright/varlock/pull/65)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix package.json entry points - remove references to files that were never built and declare import/require conditions explicitly
+- [#66](https://github.com/seanrobertwright/varlock/pull/66)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - upgrade gunshi to 0.37.1
+- [#66](https://github.com/seanrobertwright/varlock/pull/66)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - clearer errors for unknown flags, unknown commands, and bad option values
+- [#66](https://github.com/seanrobertwright/varlock/pull/66)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - track every CLI subcommand automatically and report schema usage as its own event
+- [#67](https://github.com/seanrobertwright/varlock/pull/67)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - lazy-load CLI command implementations so startup does not parse every command
+- [#67](https://github.com/seanrobertwright/varlock/pull/67)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Injected env blob reuse now detects .env source file edits: auto-load and varlock run re-resolve instead of serving stale values when a source file changed since the blob was created
+
 ## 1.17.0
 <sub>2026-08-18</sub>
 

@@ -13,6 +13,15 @@
 
 
 
+
+## 1.2.1
+<sub>2026-08-22</sub>
+
+- [#65](https://github.com/seanrobertwright/varlock/pull/65)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix package.json entry points - remove references to files that were never built and declare import/require conditions explicitly
+- [#68](https://github.com/seanrobertwright/varlock/pull/68)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  The env reload log now reports "no changes found" correctly. It previously always said "changes found", because the comparison also picked up formatting and internal bookkeeping that shift on every reload
+
 ## 1.2.0
 <sub>2026-07-28</sub>
 
