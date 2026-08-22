@@ -2,6 +2,13 @@
 
 
 
+
+## 1.0.1
+<sub>2026-08-22</sub>
+
+- [#65](https://github.com/seanrobertwright/varlock/pull/65)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix package.json entry points - remove references to files that were never built and declare import/require conditions explicitly
+
 ## 1.0.0
 <sub>2026-06-23</sub>
 

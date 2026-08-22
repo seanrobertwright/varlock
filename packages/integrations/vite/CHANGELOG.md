@@ -11,6 +11,17 @@
 
 
 
+
+## 1.5.0
+<sub>2026-08-22</sub>
+
+- [#66](https://github.com/seanrobertwright/varlock/pull/66)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)!
+  Add a `rootDir` option so integrations can point varlock at the project root when the framework sets vite's `root` to a source subdirectory, and export `buildVarlockSsrInitCode` for build pipelines vite does not own.
+- [#65](https://github.com/seanrobertwright/varlock/pull/65)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix package.json entry points - remove references to files that were never built and declare import/require conditions explicitly
+- [#66](https://github.com/seanrobertwright/varlock/pull/66)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix build-time inlining of ENV values referenced directly in Vue template interpolation (`{{ ENV.X }}`), which previously fell through to the runtime proxy and broke hydration in production builds
+
 ## 1.4.0
 <sub>2026-07-28</sub>
 

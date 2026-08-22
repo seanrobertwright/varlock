@@ -16,6 +16,16 @@
 
 
 
+
+## 1.5.0
+<sub>2026-08-22</sub>
+
+- [#65](https://github.com/seanrobertwright/varlock/pull/65)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix package.json entry points - remove references to files that were never built and declare import/require conditions explicitly
+- [#68](https://github.com/seanrobertwright/varlock/pull/68)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  `varlock-wrangler dev` no longer restarts wrangler when an env file is saved with only cosmetic changes (whitespace, comments) that leave every resolved value the same
+- *(minor)* Version bump from `@varlock/vite-integration` v1.5.0
+
 ## 1.4.0
 <sub>2026-07-28</sub>
 
