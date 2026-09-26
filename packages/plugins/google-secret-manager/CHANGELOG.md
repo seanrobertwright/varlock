@@ -5,6 +5,13 @@
 
 
 
+
+## 1.2.3
+<sub>2026-09-26</sub>
+
+- [#101](https://github.com/seanrobertwright/varlock/pull/101)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Build the plugin as a single file. The split chunks re-ran the plugin outside of its context, so `gsm()` failed every call with "No active plugin context" (aws-secrets, aws-sigv4 and infisical could hit the same error on some code paths)
+
 ## 1.2.2
 <sub>2026-08-25</sub>
 

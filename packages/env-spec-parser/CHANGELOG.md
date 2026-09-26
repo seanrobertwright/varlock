@@ -11,6 +11,13 @@
 
 
 
+
+## 0.6.1
+<sub>2026-09-26</sub>
+
+- [#104](https://github.com/seanrobertwright/varlock/pull/104)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Inside decorator function args and literals, a `#` directly followed by a letter or digit is now parsed as a value (e.g. a `#tag` selector in `@import(..., pick=[#frontend])`) instead of starting a comment. Comments still start with `# ` (hash and space) or a bare `#` at the end of a line.
+
 ## 0.6.0
 <sub>2026-09-17</sub>
 
