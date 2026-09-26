@@ -4,6 +4,13 @@
 
 
 
+
+## 2.0.3
+<sub>2026-09-26</sub>
+
+- [#100](https://github.com/seanrobertwright/varlock/pull/100)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Support KeePass databases protected only by a key file: `password` is now optional in `@initKeePass` when `keyFile` is set
+
 ## 2.0.2
 <sub>2026-08-25</sub>
 
