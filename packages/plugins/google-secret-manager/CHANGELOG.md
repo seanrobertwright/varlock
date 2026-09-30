@@ -6,6 +6,12 @@
 
 
 
+
+## 1.2.4
+<sub>2026-09-30</sub>
+
+- [#110](https://github.com/seanrobertwright/varlock/pull/110)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - Fix Workload Identity Federation, which never passed the OIDC token to Google STS.
+
 ## 1.2.3
 <sub>2026-09-25</sub>
 

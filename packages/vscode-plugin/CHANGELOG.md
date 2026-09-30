@@ -16,6 +16,12 @@
 
 
 
+
+## 0.4.4
+<sub>2026-09-30</sub>
+
+- [#109](https://github.com/seanrobertwright/varlock/pull/109)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - Add `and()` and `or()` resolver functions for combining boolean conditions
+
 ## 0.4.3
 <sub>2026-09-25</sub>
 
