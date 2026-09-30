@@ -2,6 +2,13 @@
 
 
 
+
+## 0.1.2
+<sub>2026-09-30</sub>
+
+- [#110](https://github.com/seanrobertwright/varlock/pull/110)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Detect Fly.io as a platform (`VARLOCK_PLATFORM=Fly.io`), and warn when `VARLOCK_ENV` is used but only guessed `preview` because the platform reports no environment or branch
+
 ## 0.1.1
 <sub>2026-08-25</sub>
 

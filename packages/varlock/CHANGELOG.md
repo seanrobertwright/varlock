@@ -32,6 +32,25 @@
 
 
 
+
+## 1.22.0
+<sub>2026-09-30</sub>
+
+- [#109](https://github.com/seanrobertwright/varlock/pull/109)  *(minor)* Thanks [@app/pull](https://github.com/app/pull)! - Add `and()` and `or()` resolver functions for combining boolean conditions
+- [#109](https://github.com/seanrobertwright/varlock/pull/109)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Fix `varlock audit` reporting a referenced item as unused when the item referencing it is overridden, either from the process environment or by a higher-priority file
+- [#109](https://github.com/seanrobertwright/varlock/pull/109)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Error output fixes:
+  - errors thrown from a root decorator are no longer printed twice
+  - a failing `exec()` no longer dumps a raw stack trace to stdout (which broke `load --format json-full`); the error now includes the exit code and stderr
+  - an invalid static `@cache` value is reported once
+  - a root decorator referencing an invalid item now shows that item's errors
+  - `json-full` item errors no longer include warnings
+- [#109](https://github.com/seanrobertwright/varlock/pull/109)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - Fix a declared builtin (e.g. `VARLOCK_ENV=`) resolving empty when the `@currentEnv` item depends on it
+- [#110](https://github.com/seanrobertwright/varlock/pull/110)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)! - Fix `varlock scan --install-hook` failing in git worktrees, and respect `core.hooksPath`
+- [#110](https://github.com/seanrobertwright/varlock/pull/110)  *(patch)* Thanks [@app/pull](https://github.com/app/pull)!
+  Detect Fly.io as a platform (`VARLOCK_PLATFORM=Fly.io`), and warn when `VARLOCK_ENV` is used but only guessed `preview` because the platform reports no environment or branch
+
 ## 1.21.1
 <sub>2026-09-29</sub>
 
